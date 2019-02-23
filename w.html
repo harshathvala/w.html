@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.gallery {
+    margin: 5px;
+    border: 1px solid goldenrod;
+    float : left;
+    width: 180px;
+}
+div.gallery img {
+    width: 100%;
+    height: 100%
+}
+div.disc {
+    padding: 20px;
+    text-align: center;
+    display: inline-block;
+}
+* {
+    box-sizing: border-box;
+}
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 25%;
+    height: 25%;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear:both;
+    overflow: auto;
+}
+div.main-nav {
+    position: sticky;
+    top:0%; 
+    background-color: whitesmoke;
+    z-index: 1;
+    
+}
+.main-nav input[type=text] {
+    float:right;
+    padding: 6px;
+    border: none;
+    margin-top: 10px;
+    margin-right:16px;
+    font-size: 10px;
+}
+ul {
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+    overflow:hidden;
+    background-color: grey;
+    position: sticky;
+    top:0%;
+}
+
+.chip {
+    position: absolute;
+    display: inline-block;
+    padding-block-end: 15px 20px;
+    top: 0%;
+    right: 0%;
+    text-align: right;
+    height: 20px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+}
+.chip img {
+    position: absolute;
+    top:0%;
+    right: 0%;
+    height: 20px;
+    width:20px;
+    text-align: right;
+
+}
+li {
+    float: left;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: black;
+}
+.active{
+    background-color: lawngreen;
+}
+* {box-sizing: border-box};
+body {font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif};
+.myslides {display: none};
+img {vertical-align: middle};
+
+.slideshow-container {
+    max-width: 100px;   
+    position: relative;
+    margin:auto;
+}
+.text {
+    color: black;
+    font-size: 20px;
+    padding: 8px 12px;
+    position: relative;
+    bottom: 8px;
+    width: 100%;
+    text-align: center; 
+}
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: rgb(230, 205, 205);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.fade {
+    animation-name: none;
+    animation-duration: 30s;
+}
+@-webkit-keyframes fade{
+    from {opacity: .5;}
+    to {opacity: 1;}
+}
+@keyframes fade{
+    from {opacity: .5;}
+    to {opacity: 1;}
+}
+.footer {
+    position: relative;
+}
+.text-block {
+    position: absolute;
+    background-color: rgba(94, 124, 25, 0.918);
+    color:white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.price {
+    color:goldenrod;
+    font-size: 20px;
+}
+img {
+    border: 8px;
+}
+input {
+    width: 40px;
+}
+.wrapper {
+    text-align: center;
+    position: relative;
+    top:50%;
+}
+.button {
+    padding: 10px 10px;
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    background-color: goldenrod;
+    border:80%;
+    border-radius: 10px;
+}
+.button:hover {
+    opacity: 0.8;
+}
+.button:active {
+    background-color: goldenrod;
+    box-shadow: 0 2px #666;
+    transform: translateY(1px);
+}
+.Modal {
+    display: none;
+    position: fixed;
+    z-index:1;
+    position: fixed;
+    right:50%;
+    transform: translateX(50%);
+    bottom: 60%;
+    width: 50%;
+    height: 20%;
+    overflow:auto;
+    background-color:lavenderblush;
+    background-color: rgba (0,0,0,0.4);
+}
+.Modal-content {
+    background-color: white;
+    margin:15% auto;
+    padding: 10px;
+    border: 0.5px solid #888;
+    width:80%;
+}
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color:black;
+    text-decoration:none;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="main-nav">
+        <a traget="_self" href="w.html"><img src="logo.png" alt="shandy.in"></a>
+        <div class="chip">
+            <img src="phone.png" alt="phone" width="50"
+            height="50">
+            contact info
+        </div>
+        <ul>
+            <li><a class="active" href="#">reorder</a></li>
+            <li><a href="#">myAccount</a></li>
+            <li><a href="#">cart</a></li>
+            <input type="text" placeholder="Search..">                    
+        </ul>
+</div>
+<button id="mybutton">T&C</button>
+<div id="myModal" class="Modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Our free delivery is currently only within 5 km radius for orders above RS.1500/- from our store which is located at:</p>
+        <p>New no. 177 Luz church road, Mylapore,Chennai, India - 600004</p>
+    </div>
+</div>
+<br>
+<div class="slideshow-container">
+    <div class="mySlides fade">
+        <img src="Banner-Banganapalle-Pulp.jpg" style="width: 100%">
+        <div class="text">mango pulp</div>
+    </div>
+    <div class="mySlides fade">
+        <img src="banner-shandy100.jpg" style="width: 100%">
+        <div class="text">coupon code</div>
+    </div>
+    <div class="mySlides fade">
+        <img src="banner-sambar-podi.jpg" style="width: 100%">
+        <div class="text">sambar podi</div>
+    </div>
+    <div class="mySlides fade">
+        <img src="Dehas-Organic-Green-Tea.jpg" style="width: 100%">
+        <div class="text">organic-green tea</div>
+    </div>
+</div>
+<br>
+<div style="text-align: center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+<br>
+<div class="responsive">
+    <div class="gallery">
+        <a target="_blank" href="sambar-powder-278x280.jpg">
+            <img src="sambar-powder-278x280.jpg" alt="sambar podi" width="300"
+            height="200">
+        </a>
+        <div class="disc">
+            <h3>sambar-powder-250gm<h3>
+            <p>Authentic Mylapore Sambar Podi, made fresh every week @ The Shandy </p>
+            <input type="number" value="1">
+            <p class="price">₹ 131/-</p>
+                <div class="wrapper">
+                    <button class="button">ADD TO CART</button>
+                </div>
+            </div>
+    </div>
+</div>
+<div class="responsive">
+    <div class="gallery">
+        <a target="_blank" href="Ghee-pic-278x280.jpg">
+            <img src="Ghee-pic-278x280.jpg" alt="desi ghee" width="300"
+            height="200">
+        </a>
+        <div class="disc">
+            <h3>pure-desi-ghee-250gm</h3>
+            <p>Traditional Ghee, made from A2 milk </p>
+            <input type="number" value="1">
+            <p class="price">₹ 225/-</p>
+            <div class="wrapper">
+                <button class="button">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="responsive">
+    <div class="gallery">
+        <a target="_blank" href="Urad-Dhal-Split-White-278x280.jpg">
+            <img src="Urad-Dhal-Split-White-278x280.jpg" alt="organic dhal"
+            width="300" height="200">
+        </a>
+            <div class="disc">
+            <h3>Urad-Dhal-Split-White-250gm</h3>
+            <p>Urad dhal split, used extensively for seasoning</p>
+            <input type="number" value="1">
+            <p class="price">₹ 80/-</p>
+            <div class="wrapper">
+                <button class="button">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="responsive">
+    <div class="gallery">
+        <a target="_blank" href="Rajma-278x280.jpg">
+            <img src="Rajma-278x280.jpg" alt="organic Rajma" width="300"
+            height="200">
+        </a>
+            <div class="disc">
+            <h3>Rajma-250gm</h3>
+            <p>Rajma from Uttarakhand. Cooks very well</p>
+            <input type="number" value="1">
+            <p class="price">₹ 64/-</p>
+            <div class="wrapper">
+                <button class="button">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="responsive">
+    <div class="gallery">
+        <a target="_blank" href="Idly-Rice-278x280.jpg">
+            <img src="Idly-Rice-278x280.jpg" alt="base"  width="300"
+            height="200">
+        </a>
+        <div class="disc">
+            <h3>Idly-BoiledRice-1kg</h3>
+            <p>Good Base For Making Idly and Dosa</p>
+            <input type="number" value="1">
+            <p class="price">₹64/-</p>
+            <div class="wrapper">
+                <button class="button">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="responsive">
+    <div class="gallery">
+        <a target="_blank" href="turmeric-powder-278x280.jpg">
+            <img src="turmeric-powder-278x280.jpg" alt="Turmeric Powder" width="300"
+            height="200">
+        </a>
+        <div class="disc">
+            <h3>Turmeric-Powder-100gm</h3>
+            <p>Excellent quality Turmeric Powder with curcumin content around 3.9</p>
+            <p clas="price"></p>
+            <input type="number" value="1">
+            <p class="price">₹36/-</p>
+            <div class="wrapper">
+                <button class="button">ADD TO cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="responsive">
+    <div class="gallery">
+        <a target="_blank" href="Groundnuts-278x280.jpg">
+            <img src="Groundnuts-278x280.jpg" alt="Ground Nuts" width="300"
+            height="200">
+        </a>
+        <div class="disc">
+            <h3>Ground-Nuts-250gm</h3>
+            <p>Naturally Grown Ground Nuts</p>
+            <input type="number" value="1">
+            <P class="price">₹39/-</P>
+            <div class="wrapper">
+                <button class="button">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="respondive">
+    <div class="gallery">
+        <a target="_blank" href="roasted-channa-278x280.jpg">
+            <img src="roasted-channa-278x280.jpg" alt="channa" width="300"
+            height="200">
+        </a>
+        <div class="disc">
+            <h3>channa-rosted-250gm</h3>
+            <p>Roasted-Gram(English), pottukadalai(Tmail)</p>
+            <input type="number" value="1">
+            <p class="price">₹42/-</p>
+            <div class="wrapper">
+                <button class="button">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+</div>
+<diV>
+<div class="clearfix"></div>    
+<div class="footer">
+    <footer>
+        <img src="footer.gif" alt="img" style="width:100%;">
+        <div class="text-block">
+        <p><strong>"The Shandy Story"</strong></p>
+           <blockquote> 
+              <p>The Shandy, is the first Organic Store in Chennai, founded by Organic Farmers,  Hari Sethuraman and P.B.Murali. The need for authentic organic produce to reach the market directly from the farmers, and their experience of working closely with farmers, motivated them to start Sunday Shandy in 1998. This was initially a weekly market for fresh organic produce brought directly by the farmers.</p>
+              <p>Today, The Shandy is a bustling marketplace that sells a range of organic produce sourced from farmers and artisans, from all over India, making them available for customers and retail outlets on a daily basis. The products include fruits, vegetables, grains, cereals, spices, fresh milk, fresh paneer, freshly ground flours, dry fruits, and much more. Over the years, the store has earned a formidable reputation as a preferred supplier of farm-fresh organic produce to even the most reputed retailers, owing to the quality and high level of safety, of their produce. The Shandy continues to be a whole sale supplier of Organic produce to many institutions and stores across the country.</p>
+              <p>The Shandy’s flagship product, is their award winning Organic Mangoes (PGS certified) cultivated at their Orchard, at Punnamai Village, Cheyyur Taluk, Tamil Nadu. The farm, started 24 years ago by the duo, has over 6000 mango trees. It also has fruit trees & other cash crops including sapota, coconut, banana, paddy, chillies, groundnuts and some vegetables. The entire farm is pesticide and chemical free, which has a telling effect on the produce. Today, it is a model farm for many organic farmers across India. It has been developed like a forest and the verdant surroundings play host to various species of birds and small animals.</p>
+                 At The Shandy, there are rigorous standards in place to ensure that all the products are natural and of high quality. All the farms that we source from are inspected on a regular basis by our team. The farmers who send their produce to The Shandy are people who have been working with us on this mission for the past 15 to 20yrs.
+           </blockquote>
+           <a target="_blank" href="www.facebook.com/shany.in"><input type="image"  src="facebook-icon.png" width="48" height="48"></a>
+           <footer>copyright &copy; 2018 The Shandy</footer>
+        </div>
+    </footer>        
+</div>
+</diV>
+<script>
+var Modal = document.getElementById('myModal');
+var button = document.getElementById('mybutton');
+var span = document.getElementsByClassName("close")[0];
+button.onclick = function() {
+    Modal.style.display = "block";
+}
+span.onclick = function(){
+        Modal.style.display = "none";   
+}
+window.onclick = function(event) {
+    if(event.target == Modal) {
+        Modal.style.display = "none";
+    }
+}
+var slideIndex = 0;
+showSlides();
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3000); 
+}
+</script>
+</body>
+</html>
